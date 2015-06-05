@@ -88,16 +88,16 @@ class Parse: NSObject, NSXMLParserDelegate {
         var k = ROUTES.keyEnumerator()
         for key in k {
             ROUTES_KEYS.addObject(key)
-            println("added key " + (key as! String))
+            //println("added key " + (key as! String))
         }
     }
     
     // call this when user touches a Route from upper UITableView
     func updateRouteDetails(route: String){
-        println("trying to update route details for: " + route)
+        //println("trying to update route details for: " + route)
         
         if let d = ROUTES[route] as? NSMutableArray {
-            println("got routes of route")
+            //println("got routes of route")
             for eta in d {
                 //println("added details for route " + route)
                 ACTIVE_ROUTE_DETAILS.addObject(eta)
@@ -166,24 +166,6 @@ class Parse: NSObject, NSXMLParserDelegate {
                 elements.setObject(destination, forKey: "destNm")
             }
             
-            /*
-            redefine posts (let's call it Lines) to be a dictionary of arrays
-            
-            // this would be a private variable at the top of class
-            var Lines = NSMutableDictionary()
-            
-            // get routeID string from the current xml
-            // this name needs to be consistent with names user selects from Main TableView
-            var L = elements("rt")
-            
-            if posts[L] is nil {
-            posts[L] = new NSMutableArray()
-            posts[L].addObject(elements)
-            } else {
-            posts[L].addObject(elements)
-            }
-            */
-            
             
             // rt will be something like "blue" or "R" indicating a Route.
             // we will store an array of arrival data objects for each Route
@@ -194,19 +176,19 @@ class Parse: NSObject, NSXMLParserDelegate {
                 
                 if let route = ROUTES[rt] as? NSMutableArray{
                     ROUTES[rt]!.addObject(elements)
-                    println("added a new object for a line")
+                    //println("added a new object for a line")
                     
                     
                 } else {
                     // array for this Route doesn't exist yet, so create a new one
                     ROUTES[rt] = NSMutableArray()
                     ROUTES[rt]!.addObject(elements)
-                    println("created new line array and added an object")
-                    println(rt)
+                    //println("created new line array and added an object")
+                    //println(rt)
                 }
                 
             } else {
-                println("didnt get anything back for rt")
+                println("error retrieving Route Name from database.")
             }
             
         }

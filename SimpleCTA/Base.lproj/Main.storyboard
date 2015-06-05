@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="p27-2I-VFw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="p27-2I-VFw">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -610,7 +610,6 @@
         <!--PaulTest-->
         <scene sceneID="TNZ-Ju-Q8v">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="O1g-9b-4NQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController title="PaulTest" id="tZR-wo-M0w" customClass="vcPaulTest" customModule="SimpleCTA" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pvl-I8-PWr"/>
@@ -649,6 +648,21 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bs5-LB-VEu">
+                                <rect key="frame" x="238" y="132" width="125" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3xT-Pd-mk0">
+                                <rect key="frame" x="187" y="35" width="216" height="30"/>
+                                <state key="normal" title="Set and Print Location Data">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="printLocation:" destination="tZR-wo-M0w" eventType="touchUpInside" id="244-my-k0g"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -658,6 +672,7 @@
                         </constraints>
                     </view>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O1g-9b-4NQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2017" y="-24"/>
         </scene>
@@ -673,8 +688,8 @@
         <image name="queryWest" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ztP-75-Hpr"/>
-        <segue reference="4YZ-42-QMB"/>
+        <segue reference="OSd-lq-Y2U"/>
         <segue reference="zBJ-sG-Owt"/>
+        <segue reference="4YZ-42-QMB"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -12,6 +12,9 @@ import UIKit
 
 class vcPaulTest: UIViewController {
 
+    @IBAction func printLocation(sender: UIButton) {
+        GPS.getUserLocation()
+    }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated);
