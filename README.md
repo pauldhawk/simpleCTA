@@ -1,0 +1,15 @@
+# SimpleCTA
+# Nick Groos & Paul Hawk
+
+SimpleCTA, set out to create a more simplistic and elegantly designed application for retrieving bus and train arrival information from the CTA. To do this we focused on implementing a few fundamental ideas into the user-interface: Minimize the number of clicks a user needs to make, minimize the number of screens a user needs to navigate, and minimize the amount of large lists the user needs to scroll through. In our opinion, these are the key problems facing current CTA apps in the marketplace. 
+
+## API Features Used:
+
+*User Interface* - The user-interface is based upon the UITableView object. The TableViews are used to organize our lists of train/bus information in a straight forward manner, and also allows us to dynamically put data on the screen with minimal implementation headaches. Our app uses two separate table views – first for the user to select their desired bus/train route and stop, and the second to display the list of arrival information gathered from the CTA. A Segmented Control object allows users to set search parameters such as route direction without having to navigate to a separate screen. The user interface also utilizes some slider and stepper objects for managing a few non-critical “advanced settings” that we placed in a separate screen. 
+
+*XML Parsing* - After requesting train/bus arrival data from the CTA REST API, the data is returned in a standardized XML format. To process this data we used several components of the NSXMLParser library, an API feature not covered in lecture. Using the recursive behavior of this library, we can elegantly store the entirety of the returned XML in an NSMutableDictionary organized by route ID. Passing a key to this dictionary will return an array of dictionaries which represent the original XML objects containing arrival information.
+
+*Data Persistence* – In order to make request to the CTA REST API, there is certain information that must be include as parameters in the request URL, such as route or stop ID, maximum returned results, etc. We stored this information in an SQLite relational database (not covered in lecture) and query it to retrieve parameters based on the user’s current location, and other parameters set by the user in our Segmented Control bar. To manage our SQLite connections, we imported the FMDB Library, an Objective-C wrapper class for SQLite. Using FMDB to create the database connection, we were able to easily send a query string to be executed against the SQLite file. 
+
+*Location Services* – Our application uses location services to intelligently display bus and train routes in close proximity to the user. We imported a library called OneShotLocationManager to make this job a little bit easier. This library provides convenient helper functions for interacting with MapKit and other location services from iOS. The library returns iOS MapKit data types such as CLLocation, which we would then use for latitudinal and longitudinal parameters in our location-driven database queries.
+
